@@ -11,3 +11,9 @@ This is really all about the project.
 Thanks for reading 
 
 BYE!
+
+
+_________________
+
+Side Note.
+Go to releases to download file.
