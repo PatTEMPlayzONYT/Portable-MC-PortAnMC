@@ -1,20 +1,20 @@
 @echo off
 echo Warning: Make sure this file is placed in your USB drive.
 echo.
-set /p confirm=Type 'yes' to install Minecraft: 
+set /p confirm=Type 'yes' to install Minecraft using SKLauncher: 
 
 if /I "%confirm%"=="yes" (
     echo.
-    echo Downloading Minecraft...
+    echo Downloading SKLauncher...
     mkdir "PortAnMC"
-    powershell -Command "(New-Object Net.WebClient).DownloadFile('https://launcher.mojang.com/download/Minecraft.exe', 'PortAnMC\Minecraft.exe')"
+    powershell -Command "(New-Object Net.WebClient).DownloadFile('https://skmedix.pl/binaries/_/SKlauncher-3.2.1.jar', 'PortAnMC\SKLauncher.jar')"
     
     echo.
-    echo Minecraft downloaded successfully!
+    echo SKLauncher downloaded successfully!
 
     echo.
-    echo Launching Minecraft...
-    start "" "PortAnMC\Minecraft.exe"
+    echo Launching SKLauncher...
+    start "" "%~dp0\PortAnMC\SKLauncher.jar"
     echo.
 ) else (
     echo.
@@ -30,9 +30,9 @@ pause >nul
 
 echo Creating shortcut...
 echo Set oWS = WScript.CreateObject("WScript.Shell") > "create-shortcut.vbs"
-echo sLinkFile = "%~dp0\Minecraft Launcher.lnk" >> "create-shortcut.vbs"
+echo sLinkFile = "%~dp0\SKLauncher.lnk" >> "create-shortcut.vbs"
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> "create-shortcut.vbs"
-echo oLink.TargetPath = "%~dp0\PortAnMC\Minecraft.exe" >> "create-shortcut.vbs"
+echo oLink.TargetPath = "%~dp0\PortAnMC\SKLauncher.jar" >> "create-shortcut.vbs"
 echo oLink.Save >> "create-shortcut.vbs"
 cscript "create-shortcut.vbs" //nologo
 del "create-shortcut.vbs"
